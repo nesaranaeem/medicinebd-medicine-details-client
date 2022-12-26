@@ -29,7 +29,7 @@ const DoctorCard = ({ doctor }) => {
   }, [doctorOrganization]);
 
   return (
-    <div className="card w-11/12 h-auto lg:w-96 xl:w-96 bg-primary-content shadow-xl">
+    <div className="card w-11/12 h-auto lg:w-96 xl:w-96 bg-neutral-content shadow-xl">
       <div className="card-body">
         <h2 className="card-title">
           {title} {name}
