@@ -2,7 +2,27 @@ import axios from "axios";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
 import DoctorCard from "../../components/cards/DoctorCard";
+export const getServerSideProps = async ({ query }) => {
+  const page = query.page ? parseInt(query.page, 10) : 1;
+  const items = query.item || 12;
+  // Make an API call
+  const res = await axios.get(
+    `https://medicinebd-medicine-details-server.vercel.app/v1/doctors/${page}/${items}`,
+    {
+      headers: { "Accept-Encoding": "gzip,deflate,compress" },
+    }
+  );
+  const data = res.data;
 
+  // Pass data to the component props
+  return {
+    props: {
+      data,
+      currentPage: page,
+      numPages: data.totalPage,
+    },
+  };
+};
 function Doctors(props) {
   const { data, currentPage, numPages } = props;
   const doctors = data.listings;
@@ -31,7 +51,7 @@ function Doctors(props) {
             </svg>
             <span>
               Total <div className="badge badge-md mx-1">{data.total}</div>
-              Doctors Found. Total pages{" "}
+              Doctors Found. Total pages
               <div className="badge badge-md mx-1">{data.totalPage}</div>
             </span>
           </div>
@@ -67,27 +87,5 @@ function Doctors(props) {
     </>
   );
 }
-
-export const getServerSideProps = async ({ query }) => {
-  const page = query.page ? parseInt(query.page, 10) : 1;
-  const items = query.item || 12;
-  // Make an API call
-  const res = await axios.get(
-    `https://medicinebd-medicine-details-server.vercel.app/v1/doctors/${page}/${items}`,
-    {
-      headers: { "Accept-Encoding": "gzip,deflate,compress" },
-    }
-  );
-  const data = res.data;
-
-  // Pass data to the component props
-  return {
-    props: {
-      data,
-      currentPage: page,
-      numPages: data.totalPage,
-    },
-  };
-};
 
 export default Doctors;
