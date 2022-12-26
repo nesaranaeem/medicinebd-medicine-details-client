@@ -1,5 +1,7 @@
 import axios from "axios";
 import { NextSeo } from "next-seo";
+import { useEffect } from "react";
+import DoctorCard from "../../components/cards/DoctorCard";
 export async function getStaticProps() {
   // Make an API call
   const res = await axios.get(
@@ -53,14 +55,7 @@ function Doctors(props) {
       </div>
       <div className="grid gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 justify-items-center">
         {doctors.map((doctor) => (
-          <div className="card w-11/12 h-44 lg:w-96 xl:w-96 bg-base-100 shadow-xl">
-            <div className="card-body">
-              <h2 className="card-title">
-                {doctor.title} {doctor.name}
-              </h2>
-              <p>{doctor.qualification}</p>
-            </div>
-          </div>
+          <DoctorCard key={doctor.id} doctor={doctor}></DoctorCard>
         ))}
       </div>
     </>
