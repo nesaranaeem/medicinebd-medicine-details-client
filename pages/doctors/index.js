@@ -1,34 +1,17 @@
 import axios from "axios";
 import { NextSeo } from "next-seo";
-import { useEffect } from "react";
+import Link from "next/link";
 import DoctorCard from "../../components/cards/DoctorCard";
-export async function getStaticProps() {
-  // Make an API call
-  const res = await axios.get(
-    "https://medicinebd-medicine-details-server.vercel.app/v1/doctors",
-    {
-      headers: { "Accept-Encoding": "gzip,deflate,compress" },
-    }
-  );
-  const data = res.data;
-  console.log(data);
-  // Pass data to the component props
-  return {
-    props: {
-      data,
-    },
-  };
-}
 
 function Doctors(props) {
-  const { data } = props;
-  const doctors = data.result;
+  const { data, currentPage, numPages } = props;
+  const doctors = data.listings;
 
   return (
     <>
       <NextSeo
         title={`Doctors | Total ${data.total} Doctors`}
-        description={`Browse Doctor from the total ${data.total} doctors`}
+        description={`Browse Doctor from the total ${data.total} doctors.`}
       />
       <div className="mx-auto my-3">
         <div className="alert shadow-lg">
@@ -48,18 +31,63 @@ function Doctors(props) {
             </svg>
             <span>
               Total <div className="badge badge-md mx-1">{data.total}</div>
-              Doctors Found
+              Doctors Found. Total pages{" "}
+              <div className="badge badge-md mx-1">{data.totalPage}</div>
             </span>
           </div>
         </div>
       </div>
       <div className="grid gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 justify-items-center">
-        {doctors.map((doctor) => (
+        {doctors?.map((doctor) => (
           <DoctorCard key={doctor.id} doctor={doctor}></DoctorCard>
         ))}
+      </div>
+      <div className="my-3 flex justify-center justify-items-center">
+        <div>
+          <div className="btn-group grid grid-cols-2">
+            {currentPage > 1 && (
+              <Link
+                className="btn btn-outline"
+                href={`/doctors?page=${currentPage - 1}`}
+              >
+                Previous
+              </Link>
+            )}
+            {currentPage < numPages && (
+              <Link
+                className="btn btn-outline"
+                href={`/doctors?page=${currentPage + 1}`}
+              >
+                Next
+              </Link>
+            )}
+          </div>
+        </div>
       </div>
     </>
   );
 }
+
+export const getServerSideProps = async ({ query }) => {
+  const page = query.page ? parseInt(query.page, 10) : 1;
+  const items = query.item || 12;
+  // Make an API call
+  const res = await axios.get(
+    `https://medicinebd-medicine-details-server.vercel.app/v1/doctors/${page}/${items}`,
+    {
+      headers: { "Accept-Encoding": "gzip,deflate,compress" },
+    }
+  );
+  const data = res.data;
+
+  // Pass data to the component props
+  return {
+    props: {
+      data,
+      currentPage: page,
+      numPages: data.totalPage,
+    },
+  };
+};
 
 export default Doctors;
