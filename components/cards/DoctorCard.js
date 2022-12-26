@@ -29,7 +29,7 @@ const DoctorCard = ({ doctor }) => {
   }, [doctorOrganization]);
 
   return (
-    <div className="card w-11/12 h-auto lg:w-96 xl:w-96 bg-base-100 shadow-xl">
+    <div className="card w-11/12 h-auto lg:w-96 xl:w-96 bg-primary-content shadow-xl">
       <div className="card-body">
         <h2 className="card-title">
           {title} {name}
@@ -45,13 +45,13 @@ const DoctorCard = ({ doctor }) => {
                 <>
                   <div className="badge badge-lg">
                     <FaHospitalUser />
-                    {organizationName.name.length > 33 ? (
+                    {organizationName.name.length > 30 ? (
                       <div
                         className="tooltip"
                         data-tip={`${organizationName.name}`}
                       >
                         <button className="badge badge-lg">
-                          {organizationName.name.slice(0, 33)}...
+                          {organizationName.name.slice(0, 30)}...
                         </button>
                       </div>
                     ) : (

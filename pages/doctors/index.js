@@ -3,7 +3,7 @@ import { NextSeo } from "next-seo";
 import Link from "next/link";
 import DoctorCard from "../../components/cards/DoctorCard";
 export const getServerSideProps = async ({ query }) => {
-  const page = query.page ? parseInt(query.page, 10) : 1;
+  const page = query.page ? parseInt(query.page, 10) : 0;
   const items = query.item || 12;
   // Make an API call
   const res = await axios.get(
@@ -30,7 +30,9 @@ function Doctors(props) {
   return (
     <>
       <NextSeo
-        title={`Doctors | Total ${data.total} Doctors`}
+        title={`Doctors | ${
+          currentPage < 1 ? "" : `Page ${currentPage} of ${data.totalPage} |`
+        } Total ${data.total} Doctors`}
         description={`Browse Doctor from the total ${data.total} doctors.`}
       />
       <div className="mx-auto my-3">
@@ -51,21 +53,48 @@ function Doctors(props) {
             </svg>
             <span>
               Total <div className="badge badge-md mx-1">{data.total}</div>
-              Doctors Found. Total pages
-              <div className="badge badge-md mx-1">{data.totalPage}</div>
+              Doctors Found.
             </span>
           </div>
         </div>
+        {/* breadcrumbs */}
+        {currentPage > 0 ? (
+          <div className="m-5 text-sm breadcrumbs">
+            <ul>
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href={`/doctors?page=${currentPage - 1}`}>Doctors</Link>
+              </li>
+              <li>Page {currentPage}</li>
+            </ul>
+          </div>
+        ) : (
+          <div className="mx-2 text-sm breadcrumbs">
+            <ul>
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>Doctors</li>
+            </ul>
+          </div>
+        )}
       </div>
       <div className="grid gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 justify-items-center">
         {doctors?.map((doctor) => (
           <DoctorCard key={doctor.id} doctor={doctor}></DoctorCard>
         ))}
       </div>
+      <div className="text-center">
+        You are on the{" "}
+        {currentPage === 0 ? <p>First</p> : <p>{currentPage} number</p>} Page of
+        total {data.totalPage}
+      </div>
       <div className="my-3 flex justify-center justify-items-center">
         <div>
           <div className="btn-group grid grid-cols-2">
-            {currentPage > 1 && (
+            {currentPage > 0 && (
               <Link
                 className="btn btn-outline"
                 href={`/doctors?page=${currentPage - 1}`}
