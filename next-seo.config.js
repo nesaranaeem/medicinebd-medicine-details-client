@@ -1,33 +1,33 @@
 const NextSeo = {
   defaultTitle: "MedicineBD",
   titleTemplate: "%s | Medicine Details",
-  description: "Medicine Details",
+  description: "Know Medicine Details with details",
 
   openGraph: {
     type: "website",
-    url: "http://localhost",
+    url: "https://medicinebd-medicine-details-client.vercel.app",
     site_name: "MedicineBD",
   },
 
   twitter: {
     handle: "@nesaranaeem",
-    site: "@localhost",
+    site: "@medicinebd",
     cardType: "summary_large_image",
   },
 
   linkedin: {
     handle: "@nesaranaeem",
-    site: "@localhost",
+    site: "@medicinebd",
     cardType: "summary_large_image",
   },
   github: {
     handle: "@nesaranaeem",
-    site: "@localhost",
+    site: "@medicinebd",
     cardType: "summary_large_image",
   },
   instagram: {
     handle: "@nesaranaeem",
-    site: "@localhost",
+    site: "@medicinebd",
     cardType: "summary_large_image",
   },
 };

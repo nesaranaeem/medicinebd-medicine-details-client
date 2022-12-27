@@ -90,17 +90,28 @@ const MedicineCard = ({ medicine }) => {
             ))}
           </>
         )}
-        <div className="grid gap-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 justify-items-center">
-          {packsize === null ? (
-            ""
-          ) : (
-            <div className="badge badge-secondary">{packsize}</div>
-          )}
+        {loading ? (
+          <progress className="progress w-56"></progress>
+        ) : (
+          <div className="grid gap-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 justify-items-center">
+            {packsize === null ? (
+              ""
+            ) : (
+              <div className="badge badge-secondary">{packsize}</div>
+            )}
 
-          <div className="badge badge-primary">{Math.round(price)} TK/Unit</div>
-        </div>
+            <div className="badge badge-primary">
+              {Math.round(price)} TK/Unit
+            </div>
+          </div>
+        )}
         <div className="card-actions justify-end">
-          <Link className="btn btn-primary" href={`/medicine/${brand_id}`}>
+          <Link
+            className="btn btn-primary"
+            href={`/medicine/${brand_name
+              .toLowerCase()
+              .replace(/\s+/g, "-")}-${brand_id}`}
+          >
             Details
           </Link>
         </div>

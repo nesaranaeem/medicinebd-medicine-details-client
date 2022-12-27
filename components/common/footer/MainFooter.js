@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const MainFooter = () => {
   return (
     <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
@@ -6,7 +8,7 @@ const MainFooter = () => {
           Download Our Mobile Apps
         </h5>
         <p className="mb-5 text-base text-gray-500 sm:text-lg dark:text-gray-400">
-          Cooming soon!
+          Apps is not ready yet!
         </p>
         <div className="items-center justify-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
           <span className="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
@@ -59,10 +61,12 @@ const MainFooter = () => {
       </div>
 
       <div className="grid grid-flow-col gap-4">
-        <a className="link link-hover">About us</a>
-        <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
-        <a className="link link-hover">Press kit</a>
+        <Link href="/about" className="link link-hover">
+          About
+        </Link>
+        <Link href="/disclaimer" className="link link-hover">
+          Disclaimer
+        </Link>
       </div>
       <div>
         <div className="grid grid-flow-col gap-4">
@@ -102,7 +106,7 @@ const MainFooter = () => {
         </div>
       </div>
       <div>
-        <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
+        <p>Copyright © 2022 | Developed By Nesar A. Naeem</p>
       </div>
     </footer>
   );
