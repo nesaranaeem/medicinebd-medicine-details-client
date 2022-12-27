@@ -7,7 +7,7 @@ const RecentMedicineCard = ({ medicine }) => {
 
   useEffect(() => {
     fetch(
-      `https://medicinebd-medicine-details-server.vercel.app//v1/medicine-company/${company_id}`
+      `https://medicinebd-medicine-details-server.vercel.app/v1/medicine-company/${company_id}`
     )
       .then((res) => res.json())
       .then((data) => {
