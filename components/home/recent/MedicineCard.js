@@ -49,7 +49,7 @@ const MedicineCard = ({ medicine }) => {
           <>
             {company?.map((singleCompany) => (
               <>
-                <p className="rounded-full bg-amber-100 px-2.5 py-0.5 text-amber-700 whitespace-nowrap text-lg text-center">
+                <p className="border border-indigo-600 bg-base-100 rounded-box text-center">
                   {singleCompany.company_name}
                 </p>
               </>
@@ -63,12 +63,12 @@ const MedicineCard = ({ medicine }) => {
                       className="tooltip"
                       data-tip={`${singleGeneric.generic_name}`}
                     >
-                      <p className="rounded-full bg-amber-100 px-2.5 py-0.5 text-amber-700 whitespace-nowrap text-lg text-center">
+                      <p className="border border-indigo-600 bg-base-100 rounded-box text-center">
                         {singleGeneric.generic_name.slice(0, 35)}...
                       </p>
                     </div>
                   ) : (
-                    <p className="rounded-full bg-amber-100 px-2.5 py-0.5 text-amber-700 whitespace-nowrap text-lg text-center">
+                    <p className="border border-indigo-600 bg-base-100 rounded-box text-center">
                       {singleGeneric.generic_name}
                     </p>
                   )}
@@ -76,12 +76,12 @@ const MedicineCard = ({ medicine }) => {
                 <div>
                   {strength.length > 35 ? (
                     <div className="tooltip" data-tip={`${strength}`}>
-                      <p className="rounded-full bg-amber-100 px-2.5 py-0.5 text-amber-700 whitespace-nowrap text-lg text-center">
+                      <p className="border border-indigo-600 bg-base-100 rounded-box text-center">
                         {strength.slice(0, 35)}...
                       </p>
                     </div>
                   ) : (
-                    <p className="rounded-full bg-amber-100 px-2.5 py-0.5 text-amber-700 whitespace-nowrap text-lg text-center">
+                    <p className="border border-indigo-600 bg-base-100 rounded-box text-center">
                       {strength}
                     </p>
                   )}
