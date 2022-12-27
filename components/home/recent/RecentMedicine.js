@@ -1,6 +1,7 @@
 import axios from "axios";
+import Link from "next/link";
 import { useState } from "react";
-import RecentMedicineCard from "./RecentMedicineCard";
+import MedicineCard from "./MedicineCard";
 
 const RecentMedicine = () => {
   const [recentMedicine, setRecentMedicine] = useState([]);
@@ -52,14 +53,16 @@ const RecentMedicine = () => {
           </div>
           <div className="grid gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 justify-items-center">
             {medicines.map((medicine) => (
-              <RecentMedicineCard
+              <MedicineCard
                 key={medicine._id}
                 medicine={medicine}
-              ></RecentMedicineCard>
+              ></MedicineCard>
             ))}
           </div>
           <div className="grid justify-items-center my-3">
-            <button className="btn">View All Medicine</button>
+            <Link href="/medicines" className="btn">
+              View All Medicine
+            </Link>
           </div>
         </>
       )}

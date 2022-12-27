@@ -56,13 +56,13 @@ const DoctorCard = ({ doctor }) => {
                     <>
                       <div className="badge badge-lg">
                         <FaHospitalUser />
-                        {organizationName.name.length > 30 ? (
+                        {organizationName.name.length > 29 ? (
                           <div
                             className="tooltip"
                             data-tip={`${organizationName.name}`}
                           >
                             <button className="badge badge-lg">
-                              {organizationName.name.slice(0, 30)}...
+                              {organizationName.name.slice(0, 29)}...
                             </button>
                           </div>
                         ) : (
@@ -73,12 +73,6 @@ const DoctorCard = ({ doctor }) => {
                   </Link>
                 ))}
               </div>
-            </>
-          )}
-          {loading ? (
-            <progress className="progress w-56"></progress>
-          ) : (
-            <>
               <div className="grid gap-4 grid-cols-1 justify-items-center">
                 {doctorSpecialty.map((specialtyName) => (
                   <>
@@ -86,13 +80,13 @@ const DoctorCard = ({ doctor }) => {
                       <>
                         <div className="badge badge-lg">
                           <FaHeartbeat />
-                          {specialtyName.name.length > 25 ? (
+                          {specialtyName.name.length > 29 ? (
                             <div
                               className="tooltip"
                               data-tip={`${specialtyName.name}`}
                             >
                               <button className="badge badge-lg">
-                                {specialtyName.name.slice(0, 25)}...
+                                {specialtyName.name.slice(0, 29)}...
                               </button>
                             </div>
                           ) : (
@@ -105,13 +99,13 @@ const DoctorCard = ({ doctor }) => {
                       <>
                         <div className="badge badge-lg">
                           <FaHeartbeat />
-                          {specialtyName.bangla_name.length > 25 ? (
+                          {specialtyName.bangla_name.length > 29 ? (
                             <div
                               className="tooltip"
                               data-tip={`${specialtyName.bangla_name}`}
                             >
                               <button className="badge badge-lg">
-                                {specialtyName.bangla_name.slice(0, 25)}...
+                                {specialtyName.bangla_name.slice(0, 29)}...
                               </button>
                             </div>
                           ) : (

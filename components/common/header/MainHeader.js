@@ -9,6 +9,9 @@ const MainHeader = () => {
       <li>
         <Link href="/doctors">Doctors</Link>
       </li>
+      <li>
+        <Link href="/medicines">Medicines</Link>
+      </li>
     </>
   );
   const customItems = (
