@@ -6,9 +6,11 @@ export default function Home() {
   return (
     <>
       <NextSeo
-        title="Know About Medicine"
+        title="Explore Medicine Details"
         description="MedicineBD offers over 25k+ medicine details for free of cost"
       />
+
+      <Slider />
       <RecentMedicine />
     </>
   );

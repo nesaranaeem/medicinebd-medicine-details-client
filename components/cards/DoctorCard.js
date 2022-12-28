@@ -52,65 +52,63 @@ const DoctorCard = ({ doctor }) => {
             <>
               <div className="m-3 grid gap-4 grid-cols-1 justify-items-center">
                 {doctorOrganization.map((organizationName) => (
-                  <Link href={`/hospital/${organization}`}>
-                    <>
-                      <div className="badge badge-lg">
-                        {organizationName.name.length > 29 ? (
-                          <div
-                            className="tooltip"
-                            data-tip={`${organizationName.name}`}
-                          >
-                            <button className="badge badge-lg">
-                              {organizationName.name.slice(0, 29)}...
-                            </button>
-                          </div>
-                        ) : (
-                          <>{organizationName.name}</>
-                        )}
-                      </div>
-                    </>
-                  </Link>
+                  <>
+                    <div className="badge badge-lg">
+                      {organizationName.name.length > 29 ? (
+                        <div
+                          className="tooltip"
+                          data-tip={`${organizationName.name}`}
+                        >
+                          <button className="badge badge-lg">
+                            {organizationName.name.slice(0, 29)}...
+                          </button>
+                        </div>
+                      ) : (
+                        <>{organizationName.name}</>
+                      )}
+                    </div>
+                  </>
                 ))}
               </div>
               <div className="grid gap-4 grid-cols-1 justify-items-center">
                 {doctorSpecialty.map((specialtyName) => (
                   <>
-                    <Link href={`/doctor-speciality/${specialty}`}>
-                      <>
-                        <div className="badge badge-lg">
-                          {specialtyName.name.length > 29 ? (
-                            <div
-                              className="tooltip"
-                              data-tip={`${specialtyName.name}`}
-                            >
-                              <button className="badge badge-lg">
-                                {specialtyName.name.slice(0, 29)}...
-                              </button>
-                            </div>
-                          ) : (
-                            specialtyName.name
-                          )}
-                        </div>
-                      </>
-                    </Link>
-                    <Link href={`/doctor-speciality/${specialty}`}>
-                      <>
-                        <div className="badge badge-lg">
-                          {specialtyName.bangla_name.length > 29 ? (
-                            <div
-                              className="tooltip"
-                              data-tip={`${specialtyName.bangla_name}`}
-                            >
-                              <button className="badge badge-lg">
-                                {specialtyName.bangla_name.slice(0, 29)}...
-                              </button>
-                            </div>
-                          ) : (
-                            specialtyName.bangla_name
-                          )}
-                        </div>
-                      </>
-                    </Link>
+                    <>
+                      <div className="badge badge-lg">
+                        {specialtyName.name.length > 29 ? (
+                          <div
+                            className="tooltip"
+                            data-tip={`${specialtyName.name}`}
+                          >
+                            <button className="badge badge-lg">
+                              {specialtyName.name.slice(0, 29)}...
+                            </button>
+                          </div>
+                        ) : (
+                          specialtyName.name
+                        )}
+                      </div>
+                    </>
+
+                    <>
+                      <div className="badge badge-lg">
+                        {specialtyName.bangla_name.length > 29 ? (
+                          <div
+                            className="tooltip"
+                            data-tip={`${specialtyName.bangla_name}`}
+                          >
+                            <button className="badge badge-lg">
+                              {specialtyName.bangla_name.slice(0, 29)}...
+                            </button>
+                          </div>
+                        ) : (
+                          specialtyName.bangla_name
+                        )}
+                      </div>
+                      <div className="card-actions justify-end">
+                        <button className="btn btn-primary">Details</button>
+                      </div>
+                    </>
                   </>
                 ))}
               </div>

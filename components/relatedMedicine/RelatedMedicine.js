@@ -25,7 +25,7 @@ const RelatedMedicine = ({ brand_name }) => {
         <>
           {medicine.length ? (
             <>
-              <div className="my-2 grid gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 justify-items-center">
+              <div className="my-2 grid gap-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 justify-items-center">
                 {medicine.map((singleMedicine) => (
                   <RelatedMedicineCard
                     key={singleMedicine._id}
