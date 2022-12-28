@@ -35,7 +35,7 @@ export default function AutoComplete() {
       <div className="grid gap-4 grid-cols-1 justify-items-center">
         <input
           type="text"
-          placeholder="Search Medicine eg. seclco 20"
+          placeholder="Search Medicine eg. seclo 20"
           className="input w-full max-w-xs border-black bg-base-100 rounded-box"
           value={inputText}
           onChange={handleInputChange}
