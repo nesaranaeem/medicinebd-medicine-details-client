@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
-import RelatedMedicine from "../../relatedMedicine/relatedMedicine";
+import RelatedMedicine from "../../relatedMedicine/RelatedMedicine";
 const MedicineDetails = ({ medicine }) => {
   const {
     brand_name,
