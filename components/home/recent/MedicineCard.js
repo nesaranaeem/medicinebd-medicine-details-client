@@ -37,7 +37,7 @@ const MedicineCard = ({ medicine }) => {
       });
   }, [generic_id]);
   return (
-    <div className="card w-11/12 h-auto lg:w-96 xl:w-96 bg-neutral-content shadow-xl">
+    <div className="card w-11/12 h-auto lg:w-96 xl:w-96 bg-neutral-content text-black shadow-xl">
       <div className="card-body">
         <div className="flex justify-items-center items-center">
           <h2 className="card-title">{brand_name}</h2>

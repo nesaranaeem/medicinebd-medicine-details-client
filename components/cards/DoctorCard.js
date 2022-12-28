@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaHospitalUser, FaHeartbeat, FaMale, FaFemale } from "react-icons/fa";
+
 const DoctorCard = ({ doctor }) => {
   const {
     title,
@@ -36,7 +36,7 @@ const DoctorCard = ({ doctor }) => {
   }, [doctorOrganization]);
 
   return (
-    <div className="card w-11/12 h-auto lg:w-96 xl:w-96 bg-neutral-content shadow-xl">
+    <div className="card w-11/12 h-auto lg:w-96 xl:w-96 shadow-xl">
       <div className="card-body">
         <h2 className="card-title">
           {title} {name}
@@ -50,12 +50,11 @@ const DoctorCard = ({ doctor }) => {
             <progress className="progress w-56"></progress>
           ) : (
             <>
-              <div className="my-3 grid gap-4 grid-cols-1 justify-items-center">
+              <div className="m-3 grid gap-4 grid-cols-1 justify-items-center">
                 {doctorOrganization.map((organizationName) => (
                   <Link href={`/hospital/${organization}`}>
                     <>
                       <div className="badge badge-lg">
-                        <FaHospitalUser />
                         {organizationName.name.length > 29 ? (
                           <div
                             className="tooltip"
@@ -79,7 +78,6 @@ const DoctorCard = ({ doctor }) => {
                     <Link href={`/doctor-speciality/${specialty}`}>
                       <>
                         <div className="badge badge-lg">
-                          <FaHeartbeat />
                           {specialtyName.name.length > 29 ? (
                             <div
                               className="tooltip"
@@ -98,7 +96,6 @@ const DoctorCard = ({ doctor }) => {
                     <Link href={`/doctor-speciality/${specialty}`}>
                       <>
                         <div className="badge badge-lg">
-                          <FaHeartbeat />
                           {specialtyName.bangla_name.length > 29 ? (
                             <div
                               className="tooltip"

@@ -1,5 +1,4 @@
 import { NextSeo } from "next-seo";
-import ThemeToggler from "../components/common/header/ThemeToggler";
 import RecentMedicine from "../components/home/recent/RecentMedicine";
 import Slider from "../components/home/slider/Slider";
 

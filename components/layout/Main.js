@@ -5,7 +5,7 @@ const Main = ({ children }) => {
   return (
     <>
       <MainHeader></MainHeader>
-      <main>{children}</main>
+      <main className="bg-base-100 text-black py-2">{children}</main>
       <MainFooter></MainFooter>
     </>
   );

@@ -35,7 +35,7 @@ function Doctors(props) {
         } Total ${data.total} Doctors`}
         description={`Browse Doctor from the total ${data.total} doctors.`}
       />
-      <div className="mx-auto my-3">
+      <div className="mx-auto my-3 text-black">
         <div className="alert shadow-lg">
           <div>
             <svg

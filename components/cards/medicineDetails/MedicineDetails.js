@@ -51,8 +51,8 @@ const MedicineDetails = ({ medicine }) => {
           <li>{brand_name}</li>
         </ul>
       </div>
-      <div className="flex justify-center my-3">
-        <div className="block rounded-lg shadow-lg w-4/5 bg-white text-center">
+      <div className="flex justify-center text-black bg-base-200 my-3">
+        <div className="block rounded-lg shadow-lg w-4/5 text-center">
           <div className="p-6">
             <h1 className="text-gray-900 text-2xl font-medium mb-2">
               {brand_name}
