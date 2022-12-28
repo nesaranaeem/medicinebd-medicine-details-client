@@ -3,7 +3,7 @@ import Link from "next/link";
 const MainFooter = () => {
   return (
     <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
-      <div className="w-full p-4 text-center bg-white border rounded-lg shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <div className="lg:hidden xl:hidden w-full p-4 text-center bg-white border rounded-lg shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700">
         <h5 className="mb-2 text-3xl font-bold text-gray-900 dark:text-white">
           Download Our Mobile Apps
         </h5>
