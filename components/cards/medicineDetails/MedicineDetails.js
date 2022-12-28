@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
+import RelatedMedicine from "../../relatedMedicine/relatedMedicine";
 const MedicineDetails = ({ medicine }) => {
   const {
     brand_name,
+    brand_id,
     form,
     packsize,
     strength,
@@ -261,7 +263,6 @@ const MedicineDetails = ({ medicine }) => {
               </>
             )}
           </div>
-
           <div className="py-3 px-6 border-t border-gray-300 text-gray-600">
             <p className="text-center my-2">
               Disclaimer: This platform is only for learning purpose only. if
@@ -291,7 +292,7 @@ const MedicineDetails = ({ medicine }) => {
               </div>
             </div>
           </div>
-          <p className="py-4">Content coming soon</p>
+          <RelatedMedicine key={brand_id} brand_name={brand_name} />
         </div>
       </div>
     </>
