@@ -2,13 +2,18 @@ import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function AutoComplete() {
+export default function AutoCompleteMedicineBrand() {
   const [searchResults, setSearchResults] = useState([]);
   const [inputText, setInputText] = useState("");
   const [inputTimer, setInputTimer] = useState(null);
   const [handleDisplay, setHandleDisplay] = useState(
     "mt-2 w-11/12 text-center"
   );
+
+  const handleSearchBtn = () => {
+    return alert("Please Enter Medicine Name");
+  };
+
   const handleOnclick = () => {
     setHandleDisplay("hidden");
     setInputText("");
@@ -32,7 +37,7 @@ export default function AutoComplete() {
 
   return (
     <div className="bg-base-100 text-black">
-      <div className="grid gap-4 grid-cols-1 justify-items-center">
+      <div className="grid gap-2 grid-cols-1 justify-items-center">
         <input
           type="text"
           placeholder="Search Medicine eg. seclo 20"
@@ -42,22 +47,34 @@ export default function AutoComplete() {
         />
         <div className={`${handleDisplay}`}>
           <div>
-            {searchResults.map((searchResult) => (
-              <ul className="p-3 my-2 border border-indigo-600 bg-base-100 rounded-box">
-                <li>{searchResult.brand_name}</li>
-                <li>{searchResult.form}</li>
-                <li>{searchResult?.strength}</li>
-                <Link
-                  onClick={handleOnclick}
-                  className="btn btn-sm my-2"
-                  href={`/medicine/${searchResult.brand_name
-                    .toLowerCase()
-                    .replace(/\s+/g, "-")}-${searchResult.brand_id}`}
-                >
-                  Details
-                </Link>
-              </ul>
-            ))}
+            <>
+              {searchResults.length ? (
+                <>
+                  {searchResults.map((searchResult) => (
+                    <ul className="p-3 my-2 border border-indigo-600 bg-base-100 rounded-box">
+                      <li>{searchResult.brand_name}</li>
+                      <li>{searchResult.form}</li>
+                      <li>{searchResult?.strength}</li>
+                      <Link
+                        onClick={handleOnclick}
+                        className="btn btn-sm my-2"
+                        href={`/medicine/${searchResult.brand_name
+                          .toLowerCase()
+                          .replace(/\s+/g, "-")}-${searchResult.brand_id}`}
+                      >
+                        Details
+                      </Link>
+                    </ul>
+                  ))}
+                </>
+              ) : (
+                <>
+                  <button className="btn mb-2" onClick={handleSearchBtn}>
+                    Search Medicine
+                  </button>
+                </>
+              )}
+            </>
           </div>
         </div>
       </div>

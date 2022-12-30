@@ -1,5 +1,5 @@
 import Link from "next/link";
-import AutoComplete from "../../autocomplete/AutoComplete";
+import AutoCompleteMedicineBrand from "../../autocomplete/AutoCompleteMedicineBrand";
 const MainHeader = () => {
   const navLinks = (
     <>
@@ -66,7 +66,7 @@ const MainHeader = () => {
             {customItems}
           </div>
         </div>
-        <AutoComplete />
+        <AutoCompleteMedicineBrand />
       </header>
     </>
   );

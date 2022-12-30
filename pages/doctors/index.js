@@ -1,6 +1,7 @@
 import axios from "axios";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
+import AutoCompleteDoctors from "../../components/autocomplete/AutoCompleteDoctors";
 import DoctorCard from "../../components/cards/DoctorCard";
 export const getServerSideProps = async ({ query }) => {
   const page = query.page ? parseInt(query.page, 10) : 0;
@@ -81,6 +82,10 @@ function Doctors(props) {
           </div>
         )}
       </div>
+
+      <>
+        <AutoCompleteDoctors />
+      </>
       <div className="grid gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 justify-items-center">
         {doctors?.map((doctor) => (
           <DoctorCard key={doctor.id} doctor={doctor}></DoctorCard>

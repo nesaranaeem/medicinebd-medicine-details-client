@@ -7,7 +7,7 @@ const DoctorCard = ({ doctor }) => {
     name,
     qualification,
     designation,
-
+    id,
     specialty,
     organization,
   } = doctor;
@@ -43,7 +43,9 @@ const DoctorCard = ({ doctor }) => {
         </h2>
 
         <div className="badge badge-primary">{designation}</div>
-        <p>{qualification}</p>
+        <p className="font-light text-left text-black dark:text-gray-400">
+          {qualification}
+        </p>
 
         <div>
           {loading ? (
@@ -53,20 +55,20 @@ const DoctorCard = ({ doctor }) => {
               <div className="m-3 grid gap-4 grid-cols-1 justify-items-center">
                 {doctorOrganization.map((organizationName) => (
                   <>
-                    <div className="badge badge-lg">
+                    <h4 className="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">
                       {organizationName.name.length > 29 ? (
                         <div
                           className="tooltip"
                           data-tip={`${organizationName.name}`}
                         >
-                          <button className="badge badge-lg">
+                          <h4 className="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">
                             {organizationName.name.slice(0, 29)}...
-                          </button>
+                          </h4>
                         </div>
                       ) : (
                         <>{organizationName.name}</>
                       )}
-                    </div>
+                    </h4>
                   </>
                 ))}
               </div>
@@ -74,39 +76,48 @@ const DoctorCard = ({ doctor }) => {
                 {doctorSpecialty.map((specialtyName) => (
                   <>
                     <>
-                      <div className="badge badge-lg">
+                      <div>
                         {specialtyName.name.length > 29 ? (
                           <div
                             className="tooltip"
                             data-tip={`${specialtyName.name}`}
                           >
-                            <button className="badge badge-lg">
+                            <h4 className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
                               {specialtyName.name.slice(0, 29)}...
-                            </button>
+                            </h4>
                           </div>
                         ) : (
-                          specialtyName.name
+                          <h4 className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
+                            {specialtyName.name}
+                          </h4>
                         )}
                       </div>
                     </>
 
                     <>
-                      <div className="badge badge-lg">
+                      <div>
                         {specialtyName.bangla_name.length > 29 ? (
                           <div
                             className="tooltip"
                             data-tip={`${specialtyName.bangla_name}`}
                           >
-                            <button className="badge badge-lg">
+                            <h4 className="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">
                               {specialtyName.bangla_name.slice(0, 29)}...
-                            </button>
+                            </h4>
                           </div>
                         ) : (
-                          specialtyName.bangla_name
+                          <h4 className="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">
+                            {specialtyName.bangla_name}
+                          </h4>
                         )}
                       </div>
                       <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Details</button>
+                        <Link
+                          href={`/doctor/${id}`}
+                          className="btn btn-primary"
+                        >
+                          Details
+                        </Link>
                       </div>
                     </>
                   </>

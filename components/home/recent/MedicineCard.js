@@ -46,12 +46,12 @@ const MedicineCard = ({ medicine }) => {
         {loading ? (
           <progress className="progress w-56"></progress>
         ) : (
-          <>
+          <div className="flex flex-col gap-2 justify-items-center items-center">
             {company?.map((singleCompany) => (
               <>
-                <p className="border border-indigo-600 bg-base-100 rounded-box text-center">
+                <h4 className=" bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-200 dark:text-green-900">
                   {singleCompany.company_name}
-                </p>
+                </h4>
               </>
             ))}
 
@@ -63,37 +63,41 @@ const MedicineCard = ({ medicine }) => {
                       className="tooltip"
                       data-tip={`${singleGeneric.generic_name}`}
                     >
-                      <p className="border border-indigo-600 bg-base-100 rounded-box text-center">
+                      <p className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
                         {singleGeneric.generic_name.slice(0, 35)}...
                       </p>
                     </div>
                   ) : (
-                    <p className="border border-indigo-600 bg-base-100 rounded-box text-center">
-                      {singleGeneric.generic_name}
-                    </p>
+                    <h4>
+                      <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
+                        {singleGeneric.generic_name}
+                      </span>
+                    </h4>
                   )}
                 </div>
                 <div>
                   {strength.length > 35 ? (
                     <div className="tooltip" data-tip={`${strength}`}>
-                      <p className="border border-indigo-600 bg-base-100 rounded-box text-center">
+                      <p className="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">
                         {strength.slice(0, 35)}...
                       </p>
                     </div>
                   ) : (
-                    <p className="border border-indigo-600 bg-base-100 rounded-box text-center">
-                      {strength}
-                    </p>
+                    <h4>
+                      <span className="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">
+                        {strength}
+                      </span>
+                    </h4>
                   )}
                 </div>
               </>
             ))}
-          </>
+          </div>
         )}
         {loading ? (
           <progress className="progress w-56"></progress>
         ) : (
-          <div className="grid gap-2 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 justify-items-center">
+          <div className="flex flex-col gap-2 justify-items-center items-center">
             {packsize === null ? (
               ""
             ) : (
