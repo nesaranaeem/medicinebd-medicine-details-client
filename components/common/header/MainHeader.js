@@ -7,10 +7,10 @@ const MainHeader = () => {
         <Link href="/">Home</Link>
       </li>
       <li>
-        <Link href="/doctors">Doctors</Link>
+        <Link href="/medicines">Medicines</Link>
       </li>
       <li>
-        <Link href="/medicines">Medicines</Link>
+        <Link href="/doctors">Doctors</Link>
       </li>
     </>
   );

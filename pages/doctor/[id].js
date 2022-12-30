@@ -1,11 +1,11 @@
 import axios from "axios";
+import DoctorDetails from "../../components/cards/doctorDetails/DoctorDetails";
 
-import MedicineDetails from "../../components/cards/medicineDetails/MedicineDetails";
 export const getServerSideProps = async ({ query }) => {
   const id = query.id;
   // Make an API call
   const res = await axios.get(
-    `https://medicinebd-medicine-details-server.vercel.app/v1/medicine-list/${id}`,
+    `https://medicinebd-medicine-details-server.vercel.app/v1/doctors/${id}`,
     {
       headers: { "Accept-Encoding": "gzip,deflate,compress" },
     }
@@ -19,22 +19,19 @@ export const getServerSideProps = async ({ query }) => {
     },
   };
 };
-function Medicine(props) {
+function Doctor(props) {
   const { data } = props;
-  const medicines = data.result;
+  const doctors = data.result;
 
   return (
     <>
       <div>
-        {medicines?.map((medicine) => (
-          <MedicineDetails
-            key={medicine.brand_id}
-            medicine={medicine}
-          ></MedicineDetails>
+        {doctors?.map((doctor) => (
+          <DoctorDetails key={doctor.id} doctor={doctor}></DoctorDetails>
         ))}
       </div>
     </>
   );
 }
 
-export default Medicine;
+export default Doctor;
