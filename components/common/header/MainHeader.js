@@ -12,6 +12,9 @@ const MainHeader = () => {
       <li>
         <Link href="/doctors">Doctors</Link>
       </li>
+      <li>
+        <Link href="/hospitals">Hospitals</Link>
+      </li>
     </>
   );
   const customItems = (

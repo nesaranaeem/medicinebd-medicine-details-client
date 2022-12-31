@@ -1,13 +1,14 @@
 import axios from "axios";
 import { NextSeo } from "next-seo";
 import Link from "next/link";
-import MedicineCard from "../../components/home/recent/MedicineCard";
+import AutoCompleteHospitals from "../../components/autocomplete/AutoCompleteHospitals";
+import HospitalCard from "../../components/cards/HospitalCard";
 export const getServerSideProps = async ({ query }) => {
   const page = query.page ? parseInt(query.page, 10) : 0;
   const items = query.item || 12;
   // Make an API call
   const res = await axios.get(
-    `https://medicinebd-medicine-details-server.vercel.app/v1/medicine-list/${page}/${items}`,
+    `https://medicinebd-medicine-details-server.vercel.app/v1/hospitals/${page}/${items}`,
     {
       headers: { "Accept-Encoding": "gzip,deflate,compress" },
     }
@@ -23,17 +24,17 @@ export const getServerSideProps = async ({ query }) => {
     },
   };
 };
-function Medicines(props) {
+function Hospitals(props) {
   const { data, currentPage, numPages } = props;
-  const medicines = data.listings;
+  const hospitals = data.listings;
 
   return (
     <>
       <NextSeo
-        title={`Medicines | ${
+        title={`Hospitals | ${
           currentPage < 1 ? "" : `Page ${currentPage} of ${data.totalPage} |`
-        } Total ${data.total} Medicines`}
-        description={`Browse Doctor from the total ${data.total} medicines.`}
+        } Total ${data.total} Hospitals`}
+        description={`Browse Hospitals from the total ${data.total} hospitals.`}
       />
       <div className="mx-auto my-3 text-black">
         <div className="alert shadow-lg">
@@ -53,7 +54,7 @@ function Medicines(props) {
             </svg>
             <span>
               Total <div className="badge badge-md mx-1">{data.total}</div>
-              Medicines Found.
+              Hospitals Found.
             </span>
           </div>
         </div>
@@ -65,8 +66,8 @@ function Medicines(props) {
                 <Link href="/">Home</Link>
               </li>
               <li>
-                <Link href={`/medicines?page=${currentPage - 1}`}>
-                  Medicines
+                <Link href={`/hospitals?page=${currentPage - 1}`}>
+                  Hospitals
                 </Link>
               </li>
               <li>Page {currentPage}</li>
@@ -78,14 +79,18 @@ function Medicines(props) {
               <li>
                 <Link href="/">Home</Link>
               </li>
-              <li>Medicines</li>
+              <li>Hospitals</li>
             </ul>
           </div>
         )}
       </div>
+
+      <>
+        <AutoCompleteHospitals />
+      </>
       <div className="grid gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 justify-items-center">
-        {medicines?.map((medicine) => (
-          <MedicineCard key={medicine._id} medicine={medicine}></MedicineCard>
+        {hospitals?.map((hospital) => (
+          <HospitalCard key={hospital.id} doctor={hospital}></HospitalCard>
         ))}
       </div>
       <div className="text-center">
@@ -95,11 +100,11 @@ function Medicines(props) {
       </div>
       <div className="my-3 flex justify-center justify-items-center">
         <div>
-          <div className="btn-group grid grid-cols-1 gap-2">
+          <div className="btn-group grid grid-cols-1 gap">
             {currentPage > 0 && (
               <Link
                 className="btn btn-outline"
-                href={`/medicines?page=${currentPage - 1}`}
+                href={`/hospitals?page=${currentPage - 1}`}
               >
                 Previous
               </Link>
@@ -107,7 +112,7 @@ function Medicines(props) {
             {currentPage < numPages && (
               <Link
                 className="btn btn-outline"
-                href={`/medicines?page=${currentPage + 1}`}
+                href={`/hospitals?page=${currentPage + 1}`}
               >
                 Next
               </Link>
@@ -119,4 +124,4 @@ function Medicines(props) {
   );
 }
 
-export default Medicines;
+export default Hospitals;
