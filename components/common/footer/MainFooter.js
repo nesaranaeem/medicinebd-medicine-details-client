@@ -106,7 +106,9 @@ const MainFooter = () => {
         </div>
       </div>
       <div>
-        <p>Copyright © 2022 | Developed By Nesar A. Naeem</p>
+        <p>
+          Copyright © {new Date().getFullYear()} | Developed By Nesar A. Naeem
+        </p>
       </div>
     </footer>
   );
