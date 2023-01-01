@@ -11,7 +11,7 @@ export default function AutoCompleteHospitals() {
   );
 
   const handleSearchBtn = () => {
-    return alert("Please Enter Hospital Name");
+    return alert("Please Enter Valid Hospital Name");
   };
 
   const handleOnclick = () => {

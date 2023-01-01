@@ -11,7 +11,7 @@ export default function AutoCompleteDoctors() {
   );
 
   const handleSearchBtn = () => {
-    return alert("Please Enter Doctore Name");
+    return alert("Please Enter Valid Doctore Name");
   };
 
   const handleOnclick = () => {

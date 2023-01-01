@@ -11,7 +11,7 @@ export default function AutoCompleteMedicineBrand() {
   );
 
   const handleSearchBtn = () => {
-    return alert("Please Enter Medicine Name");
+    return alert("Please Enter Valid Medicine Name");
   };
 
   const handleOnclick = () => {

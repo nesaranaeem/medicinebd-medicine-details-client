@@ -1,5 +1,5 @@
 import axios from "axios";
-import DoctorDetails from "../../components/cards/doctorDetails/DoctorDetails";
+import HospitalDetails from "../../components/cards/hospitalDetails/HospitalDetails";
 
 export const getServerSideProps = async ({ query }) => {
   const id = query.id;
@@ -22,14 +22,14 @@ export const getServerSideProps = async ({ query }) => {
 function Hospitals(props) {
   const { data } = props;
   const hospitals = data.result;
-
   return (
     <>
       <div>
         <h3 className="text-center">coming soon</h3>
-        {/* {doctors?.map((doctor) => (
-          <DoctorDetails key={doctor.id} doctor={doctor}></DoctorDetails>
-        ))} */}
+
+        {hospitals?.map((hospital) => (
+          <HospitalDetails key={hospital.id} hospital={hospital} />
+        ))}
       </div>
     </>
   );
