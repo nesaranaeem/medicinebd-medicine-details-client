@@ -25,8 +25,6 @@ function Hospitals(props) {
   return (
     <>
       <div>
-        <h3 className="text-center">coming soon</h3>
-
         {hospitals?.map((hospital) => (
           <HospitalDetails key={hospital.id} hospital={hospital} />
         ))}
