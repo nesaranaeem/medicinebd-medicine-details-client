@@ -132,7 +132,7 @@ const MedicineDetails = ({ medicine }) => {
                         <h2 class="my-2">{singleGeneric?.indication_bangla}</h2>
                       </div>
                       <NextSeo
-                        title={`${brand_name} ${form} ${strength} - Full Details`}
+                        title={`${brand_name} ${form} ${strength} - Indications, Doses, Pharmacology, Side Effects And More`}
                         description={`${brand_name} ${form} ${strength}  Price is ${Math.round(
                           price
                         )} BDT. ${singleGeneric?.indication.slice(0, 140)}... `}
