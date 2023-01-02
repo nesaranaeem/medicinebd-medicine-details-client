@@ -1,4 +1,4 @@
-import { NextSeo } from "next-seo";
+import { NextSeo, BreadcrumbJsonLd } from "next-seo";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 const DoctorDetails = ({ doctor }) => {
@@ -53,6 +53,25 @@ const DoctorDetails = ({ doctor }) => {
           </li>
         </ul>
       </div>
+      <BreadcrumbJsonLd
+        itemListElements={[
+          {
+            position: 1,
+            name: "Home",
+            item: "https://medicinebd-medicine-details-client.vercel.app/",
+          },
+          {
+            position: 2,
+            name: "Doctors",
+            item: "https://medicinebd-medicine-details-client.vercel.app/doctors",
+          },
+          {
+            position: 3,
+            name: `${title} ${name}`,
+            item: `https://medicinebd-medicine-details-client.vercel.app/doctor/${id}`,
+          },
+        ]}
+      />
       <div className="flex justify-center text-black bg-base-100 my-3">
         <div class="p-4 w-4/5 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
           <div class="flex flex-col items-center pb-10">

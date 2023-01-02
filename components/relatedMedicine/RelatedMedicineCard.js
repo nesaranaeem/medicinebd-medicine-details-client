@@ -7,11 +7,11 @@ const RelatedMedicineCard = ({ singleMedicine }) => {
       <div className="w-11/12 h-auto max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
         <div>
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {brand_name} {strength}
+            {brand_name} {form} {strength}
           </h5>
         </div>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          {form}. Price: {price} BDT/Unit
+          Price: {price} BDT/Unit
         </p>
         <Link
           href={`/medicine/${brand_name

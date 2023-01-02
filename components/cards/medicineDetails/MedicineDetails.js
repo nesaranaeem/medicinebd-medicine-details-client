@@ -39,10 +39,6 @@ const MedicineDetails = ({ medicine }) => {
 
   return (
     <>
-      <NextSeo
-        title={`${brand_name} ${form} - Full Details`}
-        description={`${brand_name} - ${form} - Price ${price}BDT. Strength ${strength}`}
-      />
       <div className="m-5 text-sm breadcrumbs">
         <ul>
           <li>
@@ -135,7 +131,12 @@ const MedicineDetails = ({ medicine }) => {
                         <h2 class="my-2">{singleGeneric?.indication}</h2>
                         <h2 class="my-2">{singleGeneric?.indication_bangla}</h2>
                       </div>
-
+                      <NextSeo
+                        title={`${brand_name} ${form} ${strength} - Full Details`}
+                        description={`${brand_name} ${form} ${strength}  Price is ${Math.round(
+                          price
+                        )} BDT. ${singleGeneric?.indication.slice(0, 140)}... `}
+                      />
                       <div
                         tabIndex={0}
                         className="my-3 collapse collapse-plus border border-indigo-600 bg-base-100 rounded-box"
@@ -176,6 +177,10 @@ const MedicineDetails = ({ medicine }) => {
                         <div className="collapse-content">
                           <p className="mb-3 text-lg font-normal text-black dark:text-gray-400">
                             {singleGeneric?.dose}
+                            <br></br>
+                            <i className="text-sm">
+                              ** Take medicine as per doctor's guidelines
+                            </i>
                           </p>
                         </div>
                       </div>
@@ -190,6 +195,10 @@ const MedicineDetails = ({ medicine }) => {
                         <div className="collapse-content">
                           <p className="mb-3 text-lg font-normal text-black dark:text-gray-400">
                             {singleGeneric?.dose_bangla}
+                            <br></br>
+                            <i className="text-sm">
+                              ** চিকিৎসকের পরামর্শ অনুযায়ী ঔষধ সেবন করুন
+                            </i>
                           </p>
                         </div>
                       </div>
@@ -317,15 +326,7 @@ const MedicineDetails = ({ medicine }) => {
               </>
             )}
           </div>
-          <div className="py-3 px-6 border-t border-gray-300 text-gray-600">
-            <p className="text-center my-2">
-              Disclaimer: This platform is only for learning purpose only. if
-              you are patient, please consult your doctor first. don't take any
-              medicine without consultation of doctor. we are not responsible
-              for anything.
-            </p>
-            <button className="btn btn-xs">Report Error</button>
-          </div>
+
           <div className="m-4">
             <div className="alert alert-info shadow-lg">
               <div>
