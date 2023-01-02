@@ -14,7 +14,6 @@ const RelatedMedicine = ({ brand_name }) => {
         setLoading(false);
       });
   }, [brand_name]);
-  console.log(medicine);
   return (
     <>
       {loading ? (

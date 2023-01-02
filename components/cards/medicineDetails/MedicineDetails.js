@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NextSeo } from "next-seo";
+import { NextSeo, BreadcrumbJsonLd } from "next-seo";
 import Link from "next/link";
 import RelatedMedicine from "../../relatedMedicine/RelatedMedicine";
 const MedicineDetails = ({ medicine }) => {
@@ -36,6 +36,7 @@ const MedicineDetails = ({ medicine }) => {
         setloading(false);
       });
   }, [generic_id]);
+
   return (
     <>
       <NextSeo
@@ -51,10 +52,31 @@ const MedicineDetails = ({ medicine }) => {
             <Link href={`/medicines`}>Medicines</Link>
           </li>
           <li>
-            {brand_name} {form}
+            {brand_name} {form} {strength}
           </li>
         </ul>
       </div>
+      <BreadcrumbJsonLd
+        itemListElements={[
+          {
+            position: 1,
+            name: "Home",
+            item: "https://medicinebd-medicine-details-client.vercel.app/",
+          },
+          {
+            position: 2,
+            name: "Medicines",
+            item: "https://medicinebd-medicine-details-client.vercel.app/medicines",
+          },
+          {
+            position: 3,
+            name: `${brand_name} ${form} ${strength}`,
+            item: `https://medicinebd-medicine-details-client.vercel.app/medicine/${brand_name
+              .toLowerCase()
+              .replace(/\s+/g, "-")}-${brand_id}`,
+          },
+        ]}
+      />
       <div className="flex justify-center text-black bg-base-100 my-3">
         <div className="block rounded-lg shadow-lg w-4/5 text-center">
           <div className="p-6">
