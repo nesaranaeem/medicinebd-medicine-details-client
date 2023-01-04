@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { useContext } from "react";
-import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import AutoCompleteMedicineBrand from "../../autocomplete/AutoCompleteMedicineBrand";
 const MainHeader = () => {
-  const { user, logOut } = useContext(AuthContext);
   const navLinks = (
     <>
       <li>
