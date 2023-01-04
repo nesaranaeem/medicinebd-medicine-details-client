@@ -22,27 +22,12 @@ const MainHeader = () => {
   );
   const customItems = (
     <>
-      {user?.uid ? (
-        <>
-          <img className="w-10 m-2 rounded-full" src={user.photoURL} alt="" />
-
-          <Link href="/dashboard" className="btn btn-xs m-2">
-            Dashboard
-          </Link>
-          {/* <button onClick={handleLogOut} className="btn btn-xs">
-            Logout
-          </button> */}
-        </>
-      ) : (
-        <>
-          <Link href="/signup" className="btn btn-xs m-2">
-            Signup
-          </Link>
-          <Link href="/login" className="btn btn-xs m-2">
-            Login
-          </Link>
-        </>
-      )}
+      <Link href="/signup" className="btn btn-xs m-2">
+        Signup
+      </Link>
+      <Link href="/login" className="btn btn-xs m-2">
+        Login
+      </Link>
     </>
   );
 

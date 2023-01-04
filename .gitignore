@@ -16,6 +16,8 @@ next.config.js
 /components/admin
 /pages/admin
 /pages/signup
+/firebase/
+/context/
 # production
 /build
 
