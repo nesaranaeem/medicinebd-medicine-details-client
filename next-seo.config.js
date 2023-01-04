@@ -1,5 +1,5 @@
 const NextSeo = {
-  defaultTitle: "MedicineBD",
+  defaultTitle: "MedeBD",
   titleTemplate: "%s | Medicine Details",
   description: "Know Medicine Details with details",
 

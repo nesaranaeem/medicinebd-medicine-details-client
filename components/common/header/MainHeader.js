@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { useContext } from "react";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import AutoCompleteMedicineBrand from "../../autocomplete/AutoCompleteMedicineBrand";
 const MainHeader = () => {
+  const { user, logOut } = useContext(AuthContext);
   const navLinks = (
     <>
       <li>
@@ -19,14 +22,30 @@ const MainHeader = () => {
   );
   const customItems = (
     <>
-      <Link href="/signup" className="btn btn-xs m-2">
-        Signup
-      </Link>
-      <Link href="/login" className="btn btn-xs m-2">
-        Login
-      </Link>
+      {user?.uid ? (
+        <>
+          <img className="w-10 m-2 rounded-full" src={user.photoURL} alt="" />
+
+          <Link href="/dashboard" className="btn btn-xs m-2">
+            Dashboard
+          </Link>
+          {/* <button onClick={handleLogOut} className="btn btn-xs">
+            Logout
+          </button> */}
+        </>
+      ) : (
+        <>
+          <Link href="/signup" className="btn btn-xs m-2">
+            Signup
+          </Link>
+          <Link href="/login" className="btn btn-xs m-2">
+            Login
+          </Link>
+        </>
+      )}
     </>
   );
+
   return (
     <>
       <header>

@@ -3,6 +3,7 @@ import { NextSeo } from "next-seo";
 import Link from "next/link";
 import AutoCompleteDoctors from "../../components/autocomplete/AutoCompleteDoctors";
 import DoctorCard from "../../components/cards/DoctorCard";
+
 export const getServerSideProps = async ({ query }) => {
   const page = query.page ? parseInt(query.page, 10) : 0;
   const items = query.item || 12;
@@ -37,6 +38,7 @@ function Doctors(props) {
         description={`Browse Doctor from the total ${data.total} doctors.`}
       />
       <div className="mx-auto my-3 text-black">
+        
         <div className="alert shadow-lg">
           <div>
             <svg

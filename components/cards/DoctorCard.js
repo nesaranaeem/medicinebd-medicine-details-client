@@ -99,15 +99,15 @@ const DoctorCard = ({ doctor }) => {
                         {specialtyName.name.length > 29 ? (
                           <div
                             className="tooltip"
-                            data-tip={`${specialtyName.name}`}
+                            data-tip={`${specialtyName?.name}`}
                           >
                             <h4 className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
-                              {specialtyName.name.slice(0, 29)}...
+                              {specialtyName?.name.slice(0, 29)}...
                             </h4>
                           </div>
                         ) : (
                           <h4 className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800">
-                            {specialtyName.name}
+                            {specialtyName?.name}
                           </h4>
                         )}
                       </div>
@@ -115,13 +115,13 @@ const DoctorCard = ({ doctor }) => {
 
                     <>
                       <div>
-                        {specialtyName.bangla_name.length > 29 ? (
+                        {specialtyName?.bangla_name.length > 29 ? (
                           <div
                             className="tooltip"
-                            data-tip={`${specialtyName.bangla_name}`}
+                            data-tip={`${specialtyName?.bangla_name}`}
                           >
                             <h4 className="bg-yellow-100 text-yellow-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-200 dark:text-yellow-900">
-                              {specialtyName.bangla_name.slice(0, 29)}...
+                              {specialtyName?.bangla_name.slice(0, 29)}...
                             </h4>
                           </div>
                         ) : (

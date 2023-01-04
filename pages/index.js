@@ -1,4 +1,5 @@
 import { NextSeo } from "next-seo";
+import Stats from "../components/common/stats/Stats";
 import RecentMedicine from "../components/home/recent/RecentMedicine";
 import Slider from "../components/home/slider/Slider";
 
@@ -11,7 +12,9 @@ export default function Home() {
       />
 
       <Slider />
+
       <RecentMedicine />
+      <Stats />
     </>
   );
 }

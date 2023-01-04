@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function AutoCompleteMedicineBrand() {
   const [searchResults, setSearchResults] = useState([]);
   const [inputText, setInputText] = useState("");
+  const [loading, setLoading] = useState(true);
   const [inputTimer, setInputTimer] = useState(null);
   const [handleDisplay, setHandleDisplay] = useState(
     "mt-2 w-11/12 text-center"
@@ -30,6 +31,7 @@ export default function AutoCompleteMedicineBrand() {
         )
         .then((res) => {
           setSearchResults(res.data);
+          setLoading(false);
         });
     }, 10);
     setInputTimer(timeout);
