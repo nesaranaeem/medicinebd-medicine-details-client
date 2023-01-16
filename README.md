@@ -21,7 +21,7 @@ MedicineBD is a platform to know clear details of 25K+ medicines including Indic
 
 ## Demo
 
-[https://medicinebd-medicine-details-client.vercel.app/](https://medicinebd-medicine-details-client.vercel.app/)
+[https://medebd.com/](https://medebd.com/)
 
 ## Author
 
